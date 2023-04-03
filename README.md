@@ -25,3 +25,9 @@ O grupo deverá entregar o documento do trabalho que descreve o que foi feito na
 
 ### Apresentação
 - Apresentação do Projeto e demonstração do protótipo (20~25 min) será entre os dias 28 e 30/06, 05, 07 e 12/07 (dois grupos por dia).
+
+# Observações:
+- Será sorteada as datas de apresentação. Todos os membros deverão apresentar presencialmente;
+- Formatos permitidos: slides (.ppt, .pptx, .pdf), documentação: formato Latex (template no SIGAA);
+- Entregas incompletas ou fora do prazo serão desconsideradas e o grupo não receberá nota pela atividade;
+- Na impossibilidade de envio pelo link devido ao tamanho, utilizar o file share wetransfer.com e fazer o upload de um documento.pdf com as informações do grupo e o link para download do material.
