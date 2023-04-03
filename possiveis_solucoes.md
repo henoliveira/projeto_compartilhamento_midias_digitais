@@ -29,6 +29,12 @@ Essa outra solução consiste em fazer uma varredura total dos nós assim que o
 usuário abrir o sistema, buscando em cada um dos nós a lista de arquivos salvos, 
 e passando por cada um dos vizinhos armazenados em cada nó, e como no algoritmo de 
 dijkstra deveremos fazer uma espécie de conta para não passar no mesmo nó mais de 
-uma vez. E então, após passar por todos os nós, devemos retornar para o nó que foi
-iniciado a lista de todos os arquivos existentes na rede, e a partir disso o usuário
-pode solicitar o arquivo que quiser a partir dessa lista.
+uma vez. 
+
+E então, após passar por todos os nós, devemos retornar para o nó que foi
+iniciado a lista de todos os arquivos existentes na rede e seus respectivos donos,
+e a partir disso o usuário pode solicitar o arquivo que quiser.
+
+# Solução 3 - Servidor de indexação
+Nesta solução teríamos um servidor onde seria armazenado a lista de todos os
+arquivos existentes na nossa rede e seus respectivos donos.
