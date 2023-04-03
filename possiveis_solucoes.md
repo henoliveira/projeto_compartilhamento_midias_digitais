@@ -23,3 +23,12 @@ E outro sistema para comunicação, como Email, Slack, etc.
 Nesse caso, o sistema de compartilhamento de arquivos não precisaria ter acesso
 à lista global de arquivos do sistema, seja ela por um servidor centralizado, ou
 por uma varredura periódica na rede toda em busca da lista atualizada de arquivos.
+
+# Solução 2 - Varredura total
+Essa outra solução consiste em fazer uma varredura total dos nós assim que o 
+usuário abrir o sistema, buscando em cada um dos nós a lista de arquivos salvos, 
+e passando por cada um dos vizinhos armazenados em cada nó, e como no algoritmo de 
+dijkstra deveremos fazer uma espécie de conta para não passar no mesmo nó mais de 
+uma vez. E então, após passar por todos os nós, devemos retornar para o nó que foi
+iniciado a lista de todos os arquivos existentes na rede, e a partir disso o usuário
+pode solicitar o arquivo que quiser a partir dessa lista.
