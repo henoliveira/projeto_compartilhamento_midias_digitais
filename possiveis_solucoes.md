@@ -15,6 +15,11 @@ flowchart LR
     7 --> 6
 ```
 
+# Amarrações
+- Varrer todos os nós em busca dos arquivos disponíveis quando um nó é iniciado
+- Notificar os nós quando um nó é iniciado
+- Notificar os nós quando o nó é finalizado
+
 # Solução 1 - Varredura com id de objetivo
 Nessa solução, levamos em consideração que na empresa existem dois sistemas. 
 Um para compartilhamento de arquivos, que seria o que estamos desenvolvendo.
