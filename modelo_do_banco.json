@@ -3,10 +3,12 @@
     "ip": "ip0",
     "nodes": {
         "Antonio": {
+            "conected": true,
             "ip": "ip1",
             "files": []
         },
         "Henrique": {
+            "conected": false,
             "ip": "ip2",
             "files": []
         }
