@@ -1,6 +1,5 @@
 {
-    "id": "Marcelo",
-    "ip": "ip0",
+    "Marcelo": "ip0",
     "nodes": {
         "Antonio": {
             "ip": "ip1",
