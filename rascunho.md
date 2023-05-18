@@ -17,3 +17,4 @@
 - Precisamos fazer uma interface?
 - Usar o mesmo template que está no SIGAA
 - Quais diagramas seria legal fazer pro nosso caso
+- O que é um modelo de processos?
