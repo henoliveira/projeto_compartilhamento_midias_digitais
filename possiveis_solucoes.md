@@ -43,3 +43,12 @@ e a partir disso o usuário pode solicitar o arquivo que quiser.
 # Solução 3 - Servidor de indexação
 Nesta solução teríamos um servidor onde seria armazenado a lista de todos os
 arquivos existentes na nossa rede e seus respectivos donos.
+
+
+# Anotações 18/05
+
+# Formas de gerenciar estado
+1- Quando um nó se conecta ou se desconecta a rede:
+    - Notifica para todos os outros nós os seus arquivos disponíveis ou indisponíveis
+2- Quando um arquivo é upado ou apagado do diretório base:
+    - Notifica para todos os outros nós os seus arquivos disponíveis ou indisponíveis
