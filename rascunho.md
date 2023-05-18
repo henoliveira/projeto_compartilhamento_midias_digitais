@@ -14,3 +14,4 @@
 
 # Dúvidas
 - O projeto vai se alterando conforme formos implementando, mas a documentação tem um prazo de entregar anterior a parte pratica
+- Precisamos fazer uma interface?
