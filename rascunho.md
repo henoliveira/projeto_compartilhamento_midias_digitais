@@ -15,3 +15,5 @@
 # Dúvidas
 - O projeto vai se alterando conforme formos implementando, mas a documentação tem um prazo de entregar anterior a parte pratica
 - Precisamos fazer uma interface?
+- Usar o mesmo template que está no SIGAA
+- Quais diagramas seria legal fazer pro nosso caso
