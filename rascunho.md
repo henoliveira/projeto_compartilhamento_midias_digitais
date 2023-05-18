@@ -1,3 +1,10 @@
+# Dúvidas
+- O projeto vai se alterando conforme formos implementando, mas a documentação tem um prazo de entregar anterior a parte pratica
+- Precisamos fazer uma interface?
+- Usar o mesmo template que está no SIGAA
+- Quais diagramas seria legal fazer pro nosso caso
+- O que é um modelo de processos?
+
 # Casos
 - Um nó salva todos os nós conectados na rede
 - Um nó ao se conectar avisa os outros que está online
@@ -12,9 +19,9 @@
 # Problemas
 - Como um nó ao se conectar pela primeira vez avisa os outros, mas sem avisar mais de uma vez o mesmo nó
 
-# Dúvidas
-- O projeto vai se alterando conforme formos implementando, mas a documentação tem um prazo de entregar anterior a parte pratica
-- Precisamos fazer uma interface?
-- Usar o mesmo template que está no SIGAA
-- Quais diagramas seria legal fazer pro nosso caso
-- O que é um modelo de processos?
+# Técnico
+- Liguagem: Python 3.11
+- Framework: FastAPI
+- SGBD: MongoDB
+- Docker para junção dos componentes
+- NGINX 
