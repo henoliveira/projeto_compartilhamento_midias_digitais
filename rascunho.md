@@ -11,3 +11,6 @@
 
 # Problemas
 - Como um nó ao se conectar pela primeira vez avisa os outros, mas sem avisar mais de uma vez o mesmo nó
+
+# Dúvidas
+- O projeto vai se alterando conforme formos implementando, mas a documentação tem um prazo de entregar anterior a parte pratica
