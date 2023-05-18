@@ -1,0 +1,14 @@
+{
+    "id": "Marcelo",
+    "ip": "ip0",
+    "nodes": {
+        "Antonio": {
+            "ip": "ip1",
+            "files": []
+        },
+        "Henrique": {
+            "ip": "ip2",
+            "files": []
+        }
+    }
+}
