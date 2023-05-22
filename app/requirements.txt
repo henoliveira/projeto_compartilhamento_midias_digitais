@@ -1,0 +1,8 @@
+fastapi==0.95.2
+uvicorn==0.22.0
+python-dotenv==1.0.0
+pymongo==4.3.3
+
+srudp==0.3.7
+pycryptodomex==3.18.0
+ecdsa==0.18.0

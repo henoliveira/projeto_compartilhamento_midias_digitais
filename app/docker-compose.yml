@@ -1,0 +1,43 @@
+version: '3.3'
+services:
+  mongo:
+    image: mongo:4.2.24
+
+  app:
+    image: python:3.11
+    depends_on:
+      - mongo
+    ports:
+      - '8000:8000'
+    env_file:
+      - .env
+
+    environment:
+      - HOST=${DATABASE_HOST}
+      - USER=${DATABASE_USER}
+      - PASSWORD=${DATABASE_PASSWORD}
+      - PORT=${DATABASE_PORT}
+      - PYTHONUNBUFFERED=1
+
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./odoo:/etc/odoo
+      - ./volumes/filestore:/root/.local/share/Odoo/filestore
+      - ./volumes/sessions:/root/.local/share/Odoo/sessions
+      - ./internal:/mnt/extra-addons/internal
+      - ./external:/mnt/extra-addons/external
+
+    command: -d ${DATABASE_NAME} -i distributed_generation --without-demo=WITHOUT_DEMO --load-language pt_BR --db-filter=${DATABASE_NAME}
+
+  nginx:
+    image: jlesage/nginx-proxy-manager:v23.04.1
+    depends_on:
+      - web
+    restart: always
+    ports:
+      - '80:80'
+      - '443:443'
+
+volumes:
+  odoo-web-data:
+  odoo-db-data:
