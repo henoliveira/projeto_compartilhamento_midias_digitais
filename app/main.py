@@ -1,3 +1,4 @@
+import models
 import uvicorn
 from fastapi import FastAPI
 from fastapi.responses import RedirectResponse

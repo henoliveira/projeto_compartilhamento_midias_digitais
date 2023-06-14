@@ -2,6 +2,8 @@ fastapi==0.95.2
 uvicorn==0.22.0
 python-dotenv==1.0.0
 pymongo==4.3.3
+pony==0.7.16
+
 
 srudp==0.3.7
 pycryptodomex==3.18.0
