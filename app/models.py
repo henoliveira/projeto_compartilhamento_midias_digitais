@@ -4,13 +4,13 @@ db = orm.Database()
 
 
 class Transactions(db.Entity):
-    id = orm.PrimaryKey(int)
+    id = orm.PrimaryKey(str)
     query = orm.Required(str)
     timestamp = orm.Required(str)
 
 
 class Nodes(db.Entity):
-    id = orm.PrimaryKey(int)
+    id = orm.PrimaryKey(str)
     ip = orm.Required(str)
     name = orm.Required(str)
     is_connected = orm.Required(bool)
@@ -19,8 +19,7 @@ class Nodes(db.Entity):
 
 
 class Files(db.Entity):
-    id = orm.PrimaryKey(int)
-    name = orm.Required(str)
+    name = orm.PrimaryKey(str)
     size_bytes = orm.Required(int)
     nodes = orm.Set("NodesFiles")
 
