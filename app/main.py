@@ -15,15 +15,15 @@ def docs_redirect():
     return RedirectResponse(url="/docs")
 
 
-@app.get("/hello")
-def hello():
-    return {"Hello": "World"}
-
-
 @app.post("/file")
 @db_session
 def create_file(request: Request, upload: UploadFile):
-    destination = f"{os.getcwd()}/misc/{upload.filename}"
+    destination = f"{os.getcwd()}/shared/{upload.filename}"
+
+    destination_exists = os.path.exists(destination)
+    if not destination_exists:
+        os.makedirs(os.path.dirname(destination), exist_ok=True)
+
     try:
         with open(destination, "wb") as buffer:
             shutil.copyfileobj(upload.file, buffer)
