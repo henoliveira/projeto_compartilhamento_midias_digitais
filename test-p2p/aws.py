@@ -1,14 +1,7 @@
-from pythonp2p import Node
-
-
-class MyNode(Node):
-    def on_message(self, message, sender, private):
-        # Gets called everytime there is a new message
-        print(message)
-
+from my_node import MyNode
 
 if __name__ == "__main__":
-    node = Node()
+    node = MyNode()
     node.ip = "44.211.213.91"
     node.start()
 
