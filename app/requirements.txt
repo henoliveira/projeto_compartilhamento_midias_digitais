@@ -6,5 +6,5 @@ pony==0.7.16
 python-multipart==0.0.6
 
 srudp==0.3.7
-pycryptodomex==3.18.0
+pycryptodome
 ecdsa==0.18.0
