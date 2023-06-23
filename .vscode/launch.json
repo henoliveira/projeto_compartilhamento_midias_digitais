@@ -18,7 +18,14 @@
                 "--port=1337"
             ],
             "jinja": true,
-            "justMyCode": true
+            "justMyCode": false
+        },
+        {
+            "name": "Debug Unit Test",
+            "type": "python",
+            "request": "launch",
+            "program": "test-p2p/p2p.py",
+            "justMyCode": false,
         }
     ]
 }
