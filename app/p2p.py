@@ -1,12 +1,8 @@
-import pythonp2p
-
-pythonp2p.node.PORT = 1338
-pythonp2p.node.FILE_PORT = 1339
 from pythonp2p import Node as _Node
 from schemas import Nodes, db_session
 
 
-class Node(pythonp2p.Node):
+class Node(_Node):
     def on_message(self, message, sender, private):
         # Gets called everytime there is a new message
         print(message)
@@ -35,4 +31,4 @@ class Node(pythonp2p.Node):
     #             Nodes(ip=peer)
 
 
-node = Node(host="0.0.0.0", port=1338, file_port=1339)
+node = Node(host="0.0.0.0")
