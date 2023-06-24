@@ -11,10 +11,10 @@ class Node(_Node):
     def connected_nodes(self):
         return [node.host for node in self.nodes_connected]
 
-    def ConnectToNodes(self):
-        for i in self.peers:
-            if not self.connect_to(i, self.port) and i not in self.connected_nodes:
-                del self.peers[self.peers.index(i)]  # delete wrong / own ip from peers
+    # def ConnectToNodes(self):
+    #     for i in self.peers:
+    #         if not self.connect_to(i, self.port) and i not in self.connected_nodes:
+    #             del self.peers[self.peers.index(i)]  # delete wrong / own ip from peers
 
     # def loadstate(self):
     #     database_peers = [node.ip for node in Nodes.select()]
