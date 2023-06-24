@@ -1,7 +1,6 @@
-from my_node import MyNode
+from app.p2p import node
 
 if __name__ == "__main__":
-    node = MyNode()
     node.ip = "44.211.213.91"
     node.start()
 

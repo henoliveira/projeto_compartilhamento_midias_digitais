@@ -31,4 +31,4 @@ class Node(_Node):
     #             Nodes(ip=peer)
 
 
-node = Node()
+node = Node(host="0.0.0.0", port=1338, file_port=1339)
