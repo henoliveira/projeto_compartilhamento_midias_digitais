@@ -13,6 +13,7 @@ app = FastAPI()
 node.start()
 # node.connect_to("3.225.100.86")
 node.loadstate()
+node.savestate()
 
 
 SHARED_FOLDER = f"{os.getcwd()}/shared"
@@ -24,9 +25,19 @@ def docs_redirect():
     return RedirectResponse(url="/docs")
 
 
+@app.get("/peers")
+def send_peers():
+    node.loadstate()
+    node.send_peers()
+    return {"peers": node.peers}
+
+
 @app.get("/hello")
 def send_hello():
+    node.loadstate()
+
     node.send_message(data='{"message": "Hello World!"}')
+    print(node.peers)
     return {"message": "Hello World!"}
 
 
