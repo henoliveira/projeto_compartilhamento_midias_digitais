@@ -24,7 +24,7 @@
             "name": "Debug Unit Test",
             "type": "python",
             "request": "launch",
-            "program": "test-p2p/p2p.py",
+            "program": "app/local.py",
             "justMyCode": false,
         }
     ]

@@ -1,8 +1,12 @@
+import pythonp2p
+
+pythonp2p.node.PORT = 1338
+pythonp2p.node.FILE_PORT = 1339
 from pythonp2p import Node as _Node
 from schemas import Nodes, db_session
 
 
-class Node(_Node):
+class Node(pythonp2p.Node):
     def on_message(self, message, sender, private):
         # Gets called everytime there is a new message
         print(message)
