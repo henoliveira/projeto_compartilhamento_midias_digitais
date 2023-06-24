@@ -11,6 +11,7 @@ from p2p import node
 
 app = FastAPI()
 node.start()
+node.connect_to("3.225.100.86")
 
 
 SHARED_FOLDER = f"{os.getcwd()}/shared"
@@ -20,6 +21,13 @@ node.setfiledir(SHARED_FOLDER)
 @app.get("/", include_in_schema=False)
 def docs_redirect():
     return RedirectResponse(url="/docs")
+
+
+@app.get("/hello")
+def send_hello():
+    node.send_message(data='{"message": "Hello World!"}')
+    return {"message": "Hello World!"}
+
 
 
 @app.get("/file")
