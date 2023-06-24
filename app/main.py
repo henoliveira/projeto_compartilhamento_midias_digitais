@@ -11,8 +11,7 @@ from p2p import node
 
 app = FastAPI()
 node.start()
-# node.connect_to("3.225.100.86")
-node.loadstate()
+node.connect_to("3.225.100.86")
 node.savestate()
 
 
@@ -25,6 +24,14 @@ def docs_redirect():
     return RedirectResponse(url="/docs")
 
 
+@app.get("/status")
+def get_status():
+    # printa os peers
+    print(f"peers: {node.peers}")
+    print(f"nodes_connected: {node.connected_nodes}")
+    return {"peers": node.peers, "nodes_connected": node.connected_nodes}
+
+
 @app.get("/peers")
 def send_peers():
     node.loadstate()
@@ -34,8 +41,6 @@ def send_peers():
 
 @app.get("/hello")
 def send_hello():
-    node.loadstate()
-
     node.send_message(data='{"message": "Hello World!"}')
     print(node.peers)
     return {"message": "Hello World!"}

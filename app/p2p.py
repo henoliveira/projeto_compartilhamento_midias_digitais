@@ -6,6 +6,7 @@ class Node(_Node):
     def on_message(self, message, sender, private):
         # Gets called everytime there is a new message
         print(message)
+        print(self.peers)
 
     @property
     def connected_nodes(self):
