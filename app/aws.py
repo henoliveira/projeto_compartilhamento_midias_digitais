@@ -1,4 +1,4 @@
-from app.p2p import node
+from p2p import node
 
 if __name__ == "__main__":
     node.ip = "44.211.213.91"

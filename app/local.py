@@ -1,6 +1,6 @@
 import os
 
-from app.p2p import node
+from p2p import node
 
 if __name__ == "__main__":
     node.start()
