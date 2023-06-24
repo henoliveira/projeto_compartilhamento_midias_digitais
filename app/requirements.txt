@@ -8,3 +8,4 @@ pythonp2p==1.7.1
 
 pycryptodome==3.18.0
 ecdsa==0.18.0
+requests

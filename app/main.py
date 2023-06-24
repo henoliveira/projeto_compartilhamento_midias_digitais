@@ -5,13 +5,14 @@ import uvicorn
 from fastapi import FastAPI, Query, Request, UploadFile
 from fastapi.responses import JSONResponse, RedirectResponse
 from pony.orm import db_session
+from requests import get
 from schemas import Files
 
 from p2p import node
 
 app = FastAPI()
+node.ip = get("https://api.ipify.org").content.decode("utf8")
 node.start()
-node.connect_to("3.225.100.86")
 node.savestate()
 
 
@@ -33,8 +34,13 @@ def get_status():
 
 
 @app.post("/connect")
-def connect_to_peer(peer: str = Query(enum=node.peers)):
-    node.connect_to(peer)
+def connect_to_peer(
+    known_peers: str = Query(enum=node.peers, default=""), manual_peer: str = ""
+):
+    if manual_peer:
+        node.connect_to(manual_peer)
+    else:
+        node.connect_to(known_peers)
     return {"peers": node.peers, "nodes_connected": node.connected_nodes}
 
 
