@@ -10,6 +10,8 @@ from schemas import Files
 from p2p import node
 
 app = FastAPI()
+node.start()
+
 
 SHARED_FOLDER = f"{os.getcwd()}/shared"
 node.setfiledir(SHARED_FOLDER)

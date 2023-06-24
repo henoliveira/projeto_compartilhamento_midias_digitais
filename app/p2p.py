@@ -32,4 +32,3 @@ class Node(_Node):
 
 
 node = Node()
-node.start()
