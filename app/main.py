@@ -2,7 +2,7 @@ import os
 import shutil
 
 import uvicorn
-from fastapi import FastAPI, Request, UploadFile
+from fastapi import FastAPI, Query, Request, UploadFile
 from fastapi.responses import JSONResponse, RedirectResponse
 from pony.orm import db_session
 from schemas import Files
@@ -29,6 +29,12 @@ def get_status():
     # printa os peers
     print(f"peers: {node.peers}")
     print(f"nodes_connected: {node.connected_nodes}")
+    return {"peers": node.peers, "nodes_connected": node.connected_nodes}
+
+
+@app.post("/connect")
+def connect_to_peer(peer: str = Query(enum=node.peers)):
+    node.connect_to(peer)
     return {"peers": node.peers, "nodes_connected": node.connected_nodes}
 
 
