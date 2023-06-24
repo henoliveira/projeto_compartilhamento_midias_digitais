@@ -16,19 +16,19 @@ class Node(_Node):
             if not self.connect_to(i, self.port) and i not in self.connected_nodes:
                 del self.peers[self.peers.index(i)]  # delete wrong / own ip from peers
 
-    def loadstate(self):
-        database_peers = [node.ip for node in Nodes.select()]
-        for i in database_peers:
-            self.connect_to(i)
+    # def loadstate(self):
+    #     database_peers = [node.ip for node in Nodes.select()]
+    #     for i in database_peers:
+    #         self.connect_to(i)
 
-    @db_session
-    def savestate(self):
-        database_peers: list[str] = [node.ip for node in Nodes.select()]
-        active_peers = self.peers
+    # @db_session
+    # def savestate(self):
+    #     database_peers: list[str] = [node.ip for node in Nodes.select()]
+    #     active_peers = self.peers
 
-        for peer in self.peers:
-            if peer not in database_peers:
-                Nodes(ip=peer)
+    #     for peer in self.peers:
+    #         if peer not in database_peers:
+    #             Nodes(ip=peer)
 
 
 node = Node()

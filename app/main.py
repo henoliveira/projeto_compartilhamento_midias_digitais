@@ -9,9 +9,10 @@ from schemas import Files
 
 from p2p import node
 
+app = FastAPI()
+
 SHARED_FOLDER = f"{os.getcwd()}/shared"
 node.setfiledir(SHARED_FOLDER)
-app = FastAPI()
 
 
 @app.get("/", include_in_schema=False)
@@ -22,8 +23,8 @@ def docs_redirect():
 @app.get("/file")
 @db_session
 def get_files():
-    files_names = [file.to_dict() for file in Files.select()]
-    return files_names
+    files = [file.to_dict() for file in Files.select()]
+    return files
 
 
 @app.get("/file/{file_name}")
