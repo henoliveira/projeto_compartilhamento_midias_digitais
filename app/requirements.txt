@@ -4,7 +4,7 @@ python-dotenv==1.0.0
 pymongo==4.3.3
 pony==0.7.16
 python-multipart==0.0.6
+pythonp2p==1.7.1
 
-srudp==0.3.7
-pycryptodome
+pycryptodome==3.18.0
 ecdsa==0.18.0

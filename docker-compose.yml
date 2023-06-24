@@ -1,0 +1,13 @@
+version: '3.4'
+services:
+    fastapi:
+        build: ./app/
+        image: extrator
+        volumes:
+            - ./app/:/usr/src/app/
+        ports:
+            - 1337:1337
+        environment:
+            - ENVIRONMENT=dev
+            - TESTING=0
+            - PYTHONUNBUFFERED=1
