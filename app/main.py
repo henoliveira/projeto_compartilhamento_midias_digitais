@@ -13,10 +13,9 @@ from p2p import node
 app = FastAPI()
 node.ip = get("https://api.ipify.org").content.decode("utf8")
 node.start()
-node.savestate()
 
 
-SHARED_FOLDER = f"{os.getcwd()}/shared"
+SHARED_FOLDER = f"{os.getcwd()}/shared/"
 node.setfiledir(SHARED_FOLDER)
 
 
@@ -41,6 +40,12 @@ def connect_to_peer(
         node.connect_to(manual_peer)
     else:
         node.connect_to(known_peers)
+    return {"peers": node.peers, "nodes_connected": node.connected_nodes}
+
+
+@app.get("/request")
+def request_file(file_id: str):
+    node.requestFile(file_id)
     return {"peers": node.peers, "nodes_connected": node.connected_nodes}
 
 
@@ -98,7 +103,6 @@ def create_file(request: Request, upload: UploadFile):
 
     file = Files(id=file_id, name=upload.filename, size_bytes=upload.size)
     response = file.to_dict()
-    response.pop("id")
     return JSONResponse(content=response, status_code=201)
 
 
