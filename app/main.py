@@ -34,10 +34,12 @@ def get_status():
 
 @app.post("/connect")
 def connect_to_peer(
-    known_peers: str = Query(enum=node.peers, default=""), manual_peer: str = ""
+    known_peers: str = Query(enum=node.peers, default=""),
+    address: str = "",
+    port: int = 65432,
 ):
-    if manual_peer:
-        node.connect_to(manual_peer)
+    if address:
+        node.connect_to(address, port)
     else:
         node.connect_to(known_peers)
     return {"peers": node.peers, "nodes_connected": node.connected_nodes}
