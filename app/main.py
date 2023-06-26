@@ -49,28 +49,14 @@ def request_file(file_id: str):
     return {"peers": node.peers, "nodes_connected": node.connected_nodes}
 
 
-@app.get("/peers")
-def send_peers():
-    node.loadstate()
-    node.send_peers()
-    return {"peers": node.peers}
-
-
-@app.get("/hello")
-def send_hello():
-    node.send_message(data='{"message": "Hello World!"}')
-    print(node.peers)
-    return {"message": "Hello World!"}
-
-
-@app.get("/file")
+@app.get("/file", tags=["file"])
 @db_session
 def get_files():
     files = [file.to_dict() for file in Files.select()]
     return files
 
 
-@app.get("/file/{file_name}")
+@app.get("/file/{file_name}", tags=["file"])
 @db_session
 def get_file(file_name: str):
     file = Files.get(name=file_name).to_dict()
@@ -79,7 +65,7 @@ def get_file(file_name: str):
     return file
 
 
-@app.post("/file")
+@app.post("/file", tags=["file"])
 @db_session
 def create_file(request: Request, upload: UploadFile):
     file_destination = f"{SHARED_FOLDER}/{upload.filename}"
@@ -106,7 +92,7 @@ def create_file(request: Request, upload: UploadFile):
     return JSONResponse(content=response, status_code=201)
 
 
-@app.delete("/file/{file_name}")
+@app.delete("/file/{file_name}", tags=["file"])
 @db_session
 def delete_file(file_name: str):
     file = Files.get(name=file_name)
@@ -116,6 +102,20 @@ def delete_file(file_name: str):
     file.delete()
     os.remove(f"{SHARED_FOLDER}/{file_name}")
     return JSONResponse(content=response, status_code=200)
+
+
+@app.get("/peers", tags=["misc"])
+def send_peers():
+    node.loadstate()
+    node.send_peers()
+    return {"peers": node.peers}
+
+
+@app.get("/hello", tags=["misc"])
+def send_hello():
+    node.send_message(data='{"message": "Hello World!"}')
+    print(node.peers)
+    return {"message": "Hello World!"}
 
 
 if __name__ == "__main__":
