@@ -3,18 +3,30 @@ import shutil
 
 import uvicorn
 from fastapi import FastAPI, Query, Request, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, RedirectResponse
 from pony.orm import db_session
+
+# from pythonp2p.portforwardlib import forwardPort
 from requests import get
 from schemas import Files
 
 from p2p import node
 
+# fw = forwardPort("1337", "1337", None, None, False, "TCP", 0, "", True)
+
+
 app = FastAPI()
 node.ip = get("https://api.ipify.org").content.decode("utf8")
 node.start()
 
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_credentials=True,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 SHARED_FOLDER = f"{os.getcwd()}/shared/"
 node.setfiledir(SHARED_FOLDER)
 
