@@ -28,6 +28,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 SHARED_FOLDER = f"{os.getcwd()}/shared/"
+if not os.path.exists(SHARED_FOLDER):
+    os.makedirs(os.path.dirname(SHARED_FOLDER), exist_ok=True)
 node.setfiledir(SHARED_FOLDER)
 
 
@@ -83,9 +85,6 @@ def get_file(file_name: str):
 @db_session
 def create_file(request: Request, upload: UploadFile):
     file_destination = f"{SHARED_FOLDER}/{upload.filename}"
-
-    if not os.path.exists(file_destination):
-        os.makedirs(os.path.dirname(file_destination), exist_ok=True)
 
     if upload.filename in [file.name for file in Files.select()]:
         return JSONResponse(content={"message": "File already exists"}, status_code=400)

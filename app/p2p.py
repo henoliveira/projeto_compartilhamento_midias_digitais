@@ -12,6 +12,10 @@ class Node(_Node):
     def connected_nodes(self):
         return [node.host for node in self.nodes_connected]
 
+    def send_peers(self):
+        peers = list(set(self.peers + self.connected_nodes))
+        self.message("peers", peers)
+
     # def ConnectToNodes(self):
     #     for i in self.peers:
     #         if not self.connect_to(i, self.port) and i not in self.connected_nodes:
