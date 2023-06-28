@@ -17,7 +17,7 @@ from p2p import node
 
 
 app = FastAPI()
-node.ip = get("https://api.ipify.org").content.decode("utf8")
+# node.ip = get("https://api.ipify.org").content.decode("utf8")
 node.start()
 
 app.add_middleware(
